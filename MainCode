@@ -1,0 +1,82 @@
+
+#Importing Random
+import random
+
+#Sorting the list using BogoSort
+def bogosort(list):
+    #Getting the Length of the List
+    length = len(list)
+    #Using a while loop to shuffle the list until list is organized
+    while (list_sorted(list) == False):
+        #Calling the FUnction
+        randomize_bogo(list)
+
+
+#Creating a function to check if the list is organized
+def list_sorted(list):
+    #Getting the Length of the List
+    length = len(list)
+    #Using a for loop in order to iterate through list
+    for i in range(0, length - 1):
+        #If the first number is greater then the second number then
+        if(list[i] > list[i + 1]):
+            #Returning False
+            return False
+    #Else Returnin True
+    return True
+
+
+#Creating a function to randomly try and sort list
+def randomize_bogo(list):
+    #Getting the Length of the List
+    length = len(list)
+    #Using a for loop to iterate through the entire list
+    for i in range(0, length):
+        #Getting a random number within the range of the length of the list
+        r = random.randint(0, length - 1)
+        #randomly placing different elements of the list in differen indexes
+        list[i], list[r] = list[r], list[i]
+
+
+
+def bozosort(list):
+    #Getting the Length of the List
+    length = len(list)
+    #Using a while loop to shuffle the list until list is organized
+    while (list_sorted(list) == False):
+        #Calling the FUnction
+        randomize_bozo(list)
+
+def randomize_bozo(list):
+    #Getting the length of the list
+    length = len(list)
+
+    #Creating two random indexes
+    r = random.randint(0, length - 1)
+    r1 = random.randint(0, length - 1)
+
+    #Randomly Replacing two different indexes from the list
+    list[r], list[r1] = list[r1], list[r]
+
+
+def main():
+
+    #Creating the Test code
+    test_list = [3,2,4,1,0,5]
+
+    #Testing BogoSort first
+    bogosort(test_list)
+    print("Sorted BogoSort Array -: ")
+    for i in range(len(test_list)):
+        print("%d" %test_list[i])
+
+    #Creating a seperate Test list for Bozosort
+    test_list = [4,2,10,3,8,5]
+    #Testing BozoSort Secondly
+    bozosort(test_list)
+    print("Sorted Bozosort Array -: ")
+    for i in range(len(test_list)):
+        print("%d" %test_list[i])
+
+#Calling the main function
+main()
